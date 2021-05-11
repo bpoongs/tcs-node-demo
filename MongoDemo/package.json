@@ -1,0 +1,20 @@
+{
+  "name": "mongoconnectwithnode",
+  "version": "1.0.0",
+  "description": "Connect mongoDb with node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "MongoDb"
+  ],
+  "author": "Edureka",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.6"
+  },
+  "devDependencies": {}
+}
