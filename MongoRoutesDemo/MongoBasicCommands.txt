@@ -1,0 +1,40 @@
+db commands
+------------
+lists all dbs
+	show dbs
+
+to create/use a db
+	use <dbname> 
+
+current working db
+	db
+
+to drop database <dbname>
+	<dbname>.dropDatabase()
+
+collection commands
+--------------------
+lists all collections in current working db
+	show collections
+
+create a collection in current working db
+	db.createCollection('<collectionname>') 
+
+drop a collection
+	db.<collectionname>.drop()
+
+document commands
+------------------
+insert a document into a collection
+	db.<collectionname>.insert(JSON/JS object document)
+	db.<collectionname>.save(JSON/JS object document)
+
+insert multiple document into the collection
+	db.<collectionname>.insertMany(array of JSON/JS object document)
+	db.<collectionname>.save(array of JSON/JS object document)
+	
+fetch documents of a collection
+	db.<collectionname>.find()
+
+fetch documents of a collection formatted
+	db.<collectionname>.find().pretty()
