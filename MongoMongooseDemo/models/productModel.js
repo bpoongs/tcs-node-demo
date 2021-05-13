@@ -10,4 +10,5 @@ var productModel = new Schema({
 })
 
 module.exports = mongoose.model('product', productModel, 'product');
+//the third argument is the collection name
 
