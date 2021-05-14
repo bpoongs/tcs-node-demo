@@ -1,0 +1,14 @@
+<div *ngIf="task === null" class="alert alert-info">{{ msg }}</div>
+
+<div class="card" *ngIf="task">
+  <div class="card-header">
+    <h4>{{ task.title }}</h4>
+  </div>
+
+  <div class="card-body">
+    <p>{{ task.description }}</p>
+    <p>
+      <a [routerLink]="['/tasks']">Back to Tasks</a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div *ngIf="tasks.length === 0" class="alert alert-info">
+  No Tasks to show
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let t of tasks" appHighlight>
+    <!--{{ task.title | uppercase }}-->
+    <app-task-item [task]="t"></app-task-item>
+  </li>
+</ul>

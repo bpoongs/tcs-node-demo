@@ -1,0 +1,143 @@
+NodeJS:
+-------
+- Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+
+NodeJS Module System:
+---------------------
+- Built-in Modules
+	- fs
+		.readFile() - Buffer https://nodejs.org/api/buffer.html
+		.writeFile()
+		.readFileSync() - Buffer
+		.writeFileSync()
+		.appendFile()
+		.appendFileSync()
+	- http
+		.createServer()
+			.listen()
+		
+		res.end()
+
+- 3rd Party Modules
+	- bcryptjs - https://www.npmjs.com/package/bcryptjs
+
+	- jsonwebtoken - https://jwt.io/
+		.sign()	- create a token
+		.verify() - verify a token
+
+	- cors - https://www.npmjs.com/package/cors
+	- mongoose - https://mongoosejs.com/
+	- request
+	- axios
+	- pm2
+	- yargs
+	- express
+		const app = express()
+		app.get()
+		app.post()
+		app.delete()
+		app.put()
+		app.patch()
+
+		res.send()
+		res.sendFile()
+
+		express.Router() - Routing portion of express
+
+- Custom Modules
+
+- Syntax for importing NodeJS Modules:
+	require (import) / module.exports (export)
+
+Middleware:
+-----------
+function(req, res, next) {} //ES5
+OR
+(req, res, next) => {} //ES6
+
+- req - representation of request object
+- res - representation of the response object
+- next - function to execute next process in sequence
+
+JSON.parse()	 - Converts a valid JSON String to a JavaScript Object
+JSON.stringify() - Converts a JavaScript Object to a JSON String
+
+ES5:
+----
+setTimeout
+setInterval
+clearInterval
+clearTimeout
+
+ES6:
+----
+let, const
+() => {}
+Promises
+	- resolved	- .then()
+	- rejected	- .catch()
+async/await
+
+--------------------------------------------------------------------------------
+- MongoDB 
+	- MongoDB is a NoSQL database
+	- MongoDB is a general purpose, document-based database (JSON document)
+	- MongoDB is a schema-free database (Application layer enforces the schema, mongodb doesn't)
+
+- RDBMS	     vs    NoSQL (MongoDB)
+  database	   database
+  table		   collection (of documents)
+  record	   document (JSON document)
+  field		   key	
+
+- MongoDB Queries
+	show dbs	- list of existing dbs
+	use taskManager - either create a db and/or change the db
+	db		- shows us the current database
+
+	db.<collection>.find()
+		- db.tasks.find({ completed: true }).pretty() 
+		- db.tasks.find({ title: "Learn JavaScript" }) 
+			//SQL: select * from tasks where title = 'Learn JavaScript' 
+
+	db.<collection>.findOne()
+
+	db.createCollection()	- collections should always be in plural form (like: tasks, users etc.)
+
+	db.<collection>.insert()
+		- db.tasks.insert({ 
+			title: 'Learn NodeJS', 
+			description: 'This is to learn NodeJS', 
+			completed: false, 
+			date: new Date() 
+		})
+
+	db.<collection>.insertMany([{}, {}])
+	db.<collection>.update()
+		db.tasks.update({ "_id" : ObjectId("5f7f2cea0347509c33e69beb") }, { $set: { completed: true } })
+	db.<collection>.remove()
+
+REST API Rules:
+---------------
+GET	- get data from the server
+POST	- create data / add data in the server
+PUT	- Update data in the server
+DELETE	- Delete the data from server
+PATCH	- Partial update to the server
+
+Useful Urls:
+https://mongoosejs.com/docs/schematypes.html
+
+Agenda:
+-------
+- User Related Routes
+	- POST /register
+		- Add User to the DB
+		- Create an encrypted password (bcryptjs)
+	- POST /login
+		- Check the user credentials
+		- On Success return a JWT
+		- On Failure 401 unauthorized
+
+- Authenticate Routes:
+	- Middlewares

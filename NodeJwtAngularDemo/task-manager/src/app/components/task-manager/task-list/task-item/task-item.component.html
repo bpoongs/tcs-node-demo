@@ -1,0 +1,5 @@
+<a [routerLink]="['/tasks', task._id]">{{ task.title }}</a>
+<button
+  class="btn btn-danger btn-sm float-right"
+  (click)="handleDelete()"
+>X</button>

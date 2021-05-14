@@ -1,0 +1,18 @@
+Backend application - > 
+	- generates the jwt token
+	- verifies the jwt token
+
+Frontend application -> 
+	- once authenticated , it receives the jwt token from backend application
+	- the jwt is stored in session storage
+	- for every subsequest http request to the back end application
+	   the token is attached as Authorization header and the request is sent
+
+Backend application ->
+- verifies the token at each endpoint
+- if authorization header is not present, return null
+- if authorization header is present, but token is tampered , then jwt.verify() 
+	will throw an error
+- based on what is returned from the back end application ( null or error or data)
+	decide what should be done in front end application ( navigate to login or
+	displa the data received from back end application)

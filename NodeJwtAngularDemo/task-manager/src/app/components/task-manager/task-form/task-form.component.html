@@ -1,0 +1,20 @@
+<form (submit)="handleSubmit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input appHighlight type="text" id="title" class="form-control" name="title" [(ngModel)]="title">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea
+      appHighlight
+      id="description"
+      class="form-control"
+      rows="5"
+      name="description"
+      [(ngModel)]="description"
+    ></textarea>
+  </div>
+
+  <button class="btn btn-primary">Add</button>
+</form>
