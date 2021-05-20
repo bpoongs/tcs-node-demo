@@ -1,0 +1,40 @@
+NodeJwtAngularDemo
+	task-manager(angular project)
+		dist
+			task-manager
+		dockerfile
+		.dockerignore
+	task-manager-api(node project)
+		dockerfile
+		.dockerignore
+	docker-compose.yml
+
+1) build your angular project
+	ng build --prod
+   this will create the dist folder
+2) create a dockerfile in task-manager
+3) create a dockerfile in task-manager-api
+4) create a .dockerignore in task-manager-api
+5) create docker-compose.yml file in NodeJwtAngularDemo
+6) change all localhost to service name(service name is present in docker-compose.yml file)
+
+
+open cmd
+--------
+1) remove any running containers if present
+	> docker ps
+	> docker rm -f <container id>
+2) remove any images if present
+	> docker images
+	> docker rmi <image id/ image name>
+3) build the docker-compose.yml file
+	NodeJwtAngularDemo> docker-compose build
+   images will be created, check by using "docker images" command
+4) run the created images by running the docker-compose.yml
+	NodeJwtAngularDemo> docker-compose up -d
+5) now 3 containers should be up and running, verify by
+	> docker ps
+6) open a browser and type http://localhost:80
+
+
+

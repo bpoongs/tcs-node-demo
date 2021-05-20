@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  mongo-db:
+    image: mongo
+    ports:
+      - '27017:27017'
+  server:
+    build: task-manager-api/.
+    image: demo/meanstack_backend
+    ports:
+      - '3000:3000'
+    links:
+      - mongo-db
+  client:
+    build: task-manager/.
+    image: demo/meanstack_frontend
+    ports:
+      - '80:80'
