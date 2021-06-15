@@ -6,11 +6,6 @@ const server = http.createServer((req, res) => {
         res.write('For Browser: Hello World!')     
         res.end();
     }
-    if(req.url === '/api/courses'){
-        console.log('For Console: api/courses accessed!')
-        res.write(JSON.stringify([1, 2, 3]));
-        res.end(); 
-    }
  });
 
 server.listen(3000);
