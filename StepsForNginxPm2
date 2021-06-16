@@ -1,0 +1,40 @@
+Steps to work with pm2
+-----------------------
+1) install the pm2 package 
+	npm install -g pm2
+2) start the node application using pm2
+	pm2 start app.js
+
+	pm2 l ----> lists the applications started.
+	pm2 -s stop app.js ----> stops a particular application
+
+Steps to work with nginx
+--------------------------
+1) Download nginx zip file and extract it
+2) open the nginx.conf file in the nginx/conf folder
+3) paste the below configuration in the nginx.conf file
+
+	server {
+        listen       8082;
+        server_name  localhost;
+
+        location / {
+            proxy_pass http://127.0.0.1:6500;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection 'upgrade';
+              proxy_set_header Host $host;
+              proxy_cache_bypass $http_upgrade;
+        }
+    }
+4) start the nginx server ( navigate to the nginx unzipped folder)
+	> nginx.exe
+5) confirm the nginx server has started 
+	open a browser and type http://localhost
+	we should see the welcome page of nginx server
+6) start your node application using pm2
+	> pm2 start app.js
+7) open a browser and type http://localhost:8082/getMovies
+
+
+		

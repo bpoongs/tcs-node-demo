@@ -24,8 +24,9 @@ app.get('/api/products', (req, res) => {
     res.send(allProducts);
 });
 
+// http://localhost:5000/api/products/101
 app.get('/api/products/:prodId', (req, res) => {
-    let prodId = req.params.prodId;
+    let prodIdapp = req.params.prodId;
     let product = allProducts.find((prod) => prod.id == prodId);
     res.send(product);
 });
