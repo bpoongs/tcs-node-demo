@@ -1,5 +1,4 @@
 const express = require('express');
-const fs = require('fs');
 
 const app = express();
 app.use(express.json()); // included due to use of req.body

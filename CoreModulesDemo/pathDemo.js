@@ -1,6 +1,6 @@
 const path = require('path');
 
-var myPath="../hello.txt"
+var myPath="./hello.txt"
 
 console.log("Base name : " + path.basename(myPath));
 console.log("Dir name : " + path.dirname(myPath));
