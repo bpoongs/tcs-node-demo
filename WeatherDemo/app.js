@@ -8,7 +8,7 @@ const weatherUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Lond
 // Static file path - css files
 app.use(express.static(__dirname+'/public'));
 // Html or rending Path - ejs
-app.set('views', './src/views');
+app.set('views', './src/views'); // location of .ejs files
 // View engine specification
 app.set('view engine', 'ejs');
 
@@ -39,6 +39,8 @@ app.get('/',(req,res) => {
     // Get user details after that get followers from URL
     dataPromise.then(JSON.parse)
                .then(function(result) {
+                   //console.log(result);
+                   //res.send(result);
                     res.render('main',{result,title:'***Weather App***'})
                 })
 })

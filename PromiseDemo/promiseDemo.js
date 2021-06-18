@@ -1,6 +1,6 @@
 const promise = new Promise((resolve, reject) => {
-    resolve('GOOD');
-    //reject('BAD');
+    //resolve('GOOD');
+    reject('BAD');
 }).then(value => {
     console.log(value); // prints GOOD
     return 1;

@@ -7,7 +7,7 @@ fs.readFile('./hello.txt', (error, data) => {
         console.log(error);
     }
     else{
-        console.log('Without Promises :' + data.toString());
+        console.log('Without Promises : ' + data.toString());
     }
 })
 
@@ -22,16 +22,17 @@ const promise = new Promise((resolve, reject) => {
         }
     })
 }).then(value => {
-    console.log('Using promises:' + value);
+    console.log('Using promises : ' + value);
 }).catch(error => {
     console.log(error);
 })
 
 //better
 const read = util.promisify(fs.readFile);
+
 read('./hello.txt')
     .then(value => {
-        console.log(value.toString());
+        console.log('Using promisify : ' + value.toString());
     }).catch(error => {
         console.log(error);
     })

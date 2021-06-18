@@ -1,0 +1,51 @@
+db queries
+----------
+use products_db
+db
+show dbs
+
+collection queries
+-------------------
+db.createCollection('product_details')
+show collections
+db.product_details.drop()
+
+insert queries
+--------------
+db.product_details.insert({....})
+db.product_details.insert([{...},{...},{...}])
+
+select/ find queries
+--------------------
+db.product_details.find()
+db.product_details.find().pretty()
+db.product_details.findOne({"productName":"Chips"})
+
+and in mongodb
+---------------
+>db.mycol.find({key1:value1, key2:value2}).pretty()
+
+or in mongodb
+--------------
+>db.mycol.find(
+	{
+		$or: [
+			{key1: value1}, {key2:value2}
+		]}).pretty()
+
+update/save queries
+---------------------
+>db.mycol.update({'title':'MongoDB Overview'},{$set:{'title':'New MongoDB Tutorial'}})
+
+>db.mycol.save(
+{
+"_id" : ObjectId(5983548781331adf45ec7), "title":"Tutorials Point New Topic",
+"by":"Tutorials Point"
+}
+)
+
+delete queries
+--------------
+>db.mycol.remove({'title':'MongoDB Overview'})
+
+>db.mycol.remove()

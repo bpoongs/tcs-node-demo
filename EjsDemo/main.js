@@ -6,9 +6,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    //read the file
-    //fs.readFile(......)
-    
+    //res.send(data);
     res.render('pages/main', {data: { userName: 'John'}});  // render takes 2 arguments
 });
 
