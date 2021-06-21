@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": "23",
+      "firstName": "Bill",
+      "age": 20,
+      "companyId": "1"
+    },
+    {
+      "id": "47",
+      "firstName": "John",
+      "age": 22,
+      "companyId": "2"
+    },
+    {
+      "id": "48",
+      "firstName": "Andy",
+      "age": 11,
+      "companyId": "2"
+    },
+    {
+      "id": "49",
+      "firstName": "Kerio",
+      "age": 33,
+      "companyId": "3"
+    },
+    {
+      "firstName": "Stephen",
+      "age": 36,
+      "id": "o-a_VA0"
+    }
+  ],
+  "companies": [
+    {
+      "id": "1",
+      "name": "Apple",
+      "location": "Seattle"
+    },
+    {
+      "id": "2",
+      "name": "Microsoft",
+      "age": 22,
+      "location": "Newyork"
+    },
+    {
+      "id": "3",
+      "name": "Google",
+      "age": 11,
+      "location": "California"
+    }
+  ]
+}

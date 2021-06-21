@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 const mongourl = 'mongodb://127.0.0.1:27017/'
 let db;
-const collectionName = 'product';
+const collectionName = 'product_details';
 
 // app is replaced with router
 // remove /api from the route
@@ -18,15 +18,15 @@ router
         })  
     })
     .post((req, res) => {
-        db.collection(collectionName).insert(req.body, (err, result) => {
+        db.collection(collectionName).insertOne(req.body, (err, result) => {
             if(err) res.send('Error inserting document!!');
             else res.send({ message : 'Document inserted successfully!!'});
         })
     })
     .put((req, res) => {
-        db.collection(collectionName).update({productId: +req.body.productId}, {
+        db.collection(collectionName).update({id: +req.body.id}, {
             $set: {
-                productId: req.body.productId,
+                id: req.body.id,
                 productName: req.body.productName,
                 productCost: req.body.productCost,
                 productDescription: req.body.productDescription,
@@ -42,14 +42,14 @@ router
     .route('/products/:prodId')
     .get((req, res) => {
         let productId = req.params.prodId;
-        db.collection(collectionName).findOne({"productId" : +productId}, (err, result) => {
+        db.collection(collectionName).findOne({"id" : +productId}, (err, result) => {
             if(err) throw err;
             else res.send(result);
         })
     })
     .delete((req, res) => {
         let prodId = req.params.prodId;
-        db.collection(collectionName).deleteOne({productId : +prodId}, (err, result) => {
+        db.collection(collectionName).deleteOne({id : +prodId}, (err, result) => {
             if(err) res.send('Error deleting document!!');
             else res.send({ message : 'Document deleted successfully!!'});
         })
@@ -57,7 +57,7 @@ router
 
 MongoClient.connect(mongourl,(err,client) => {
     if(err) throw err;
-    db = client.db('productdb');
+    db = client.db('productDB');
 });
 
 module.exports = router;

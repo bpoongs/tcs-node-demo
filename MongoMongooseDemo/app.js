@@ -8,7 +8,7 @@ const port = 3300;
 const app = express();
 app.use(express.json()); // included due to the use of req.body
 
-const db = mongoose.connect('mongodb://127.0.0.1:27017/productdb');
+const db = mongoose.connect('mongodb://127.0.0.1:27017/productDB');
 
 //const mongourl = 'mongodb://127.0.0.1:27017/'
 //let db;
@@ -28,7 +28,7 @@ app.get('/api/products', (req, res) => {
 
 app.get('/api/products/:prodId', (req, res) => {
     let productId = req.params.prodId;
-    //db.collection(collectionName).findOne({"productId" : +productId}, (err, result) => {
+    //db.collection(collectionName).findOne({"id" : +productId}, (err, result) => {
     product.findById(productId, (err, result) => {
         if(err) throw err;
         else res.send(result);
@@ -45,18 +45,18 @@ app.post('/api/products', (req, res) => {
 
 app.delete('/api/products/:productId', (req, res) => {
     let prodId = req.params.productId;
-    //db.collection(collectionName).deleteOne({productId : +prodId}, (err, result) => {
-    product.findOneAndDelete({"productId" : +prodId}, (err, result) => {
+    //db.collection(collectionName).deleteOne({id : +prodId}, (err, result) => {
+    product.findOneAndDelete({"id" : +prodId}, (err, result) => {
         if(err) res.send('Error deleting document!!');
         else res.send({ message : 'Document deleted successfully!!'});
     })
 })
 
 app.put('/api/products', (req, res) => {
-    //db.collection(collectionName).update({productId: +req.body.productId}, {
-    product.findOneAndUpdate({"productId": +req.body.productId}, {
+    //db.collection(collectionName).update({id: +req.body.id}, {
+    product.findOneAndUpdate({"id": +req.body.id}, {
         $set: {
-            productId: req.body.productId,
+            id: req.body.id,
             productName: req.body.productName,
             productCost: req.body.productCost,
             productDescription: req.body.productDescription,
