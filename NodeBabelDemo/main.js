@@ -1,4 +1,6 @@
-import fs from 'fs';
+//const fs = require('fs');
+//es6 version of importing
+//import fs from 'fs';
 
 const doubleUp = n => n * 2;
 let mark = 20;

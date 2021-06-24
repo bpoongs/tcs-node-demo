@@ -2,10 +2,10 @@ import express from 'express';
 import path from 'path';
 import http from 'http';
 
-const LocalStorage = require('node-localstorage').LocalStorage;
-let localStorage = new LocalStorage('./scratch');
-const iplocate = require("node-iplocate");
-const publicIp = require('public-ip');
+const LocalStorage = require('node-localstorage').LocalStorage; // for node local storage
+let localStorage = new LocalStorage('./scratch'); // creating a local storage
+const iplocate = require("node-iplocate"); // for geo location
+const publicIp = require('public-ip'); // for geo location
 let io = require('socket.io');
 let app = express();
 
@@ -32,13 +32,13 @@ io = require('socket.io').listen(server);
 // Handle socket traffic
 io.sockets.on('connection',  (socket) => {
 
-    var list = io.sockets.sockets;
-    var users = Object.keys(list);
+    var list = io.sockets.sockets; // for get the list of sockets
+    var users = Object.keys(list); // 
 
     // Set the nickname property for a given client
     socket.on('nick', (nick) => {
         socket.set('nickname', nick);
-        socket.emit('userlist', users);
+        socket.emit('userlist', users);// who is listening on userList?
     });   
 
     // Relay chat data to all clients

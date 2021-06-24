@@ -7,8 +7,8 @@ const taskRoutes = require('./routes/taskRoutes')
 const userRoutes = require('./routes/userRoutes')
 
 mongoose.connect(
-    'mongodb://mongo-db:27017/taskManager',
-    //'mongodb://localhost:27017/taskManager',
+    //'mongodb://mongo-db:27017/taskManager',
+    'mongodb://localhost:27017/taskManager',
     {
         useNewUrlParser:true,
         useUnifiedTopology:true
